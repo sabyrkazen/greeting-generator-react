@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { OccasionType, ToneType } from './types'
+import { type LanguageType, OccasionType, ToneType } from './types'
+import { LANGUAGES } from './constants'
 
 export const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -7,6 +8,7 @@ export const App = () => {
   const [age, setAge] = useState<string>('')
   const [interests, setInterests] = useState<string>('')
   const [tone, setTone] = useState<ToneType>(ToneType.OFFICIAL)
+  const [language, setLanguage] = useState<LanguageType>('English')
 
   return (
     <div className="min-h-screen bg-[#FAF5FF]">
@@ -18,6 +20,7 @@ export const App = () => {
           <p>{age}</p>
           <p>{interests}</p>
           <p>{tone}</p>
+          <p>{language}</p>
         </div>
         <div>
           <div>
@@ -43,6 +46,15 @@ export const App = () => {
                 {item}
               </button>
             ))}
+          </div>
+          <div>
+            <select value={language} onChange={(event) => setLanguage(event.target.value as LanguageType)}>
+              {LANGUAGES.map((lang) => (
+                <option key={lang} value={lang}>
+                  {lang}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </main>

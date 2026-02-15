@@ -15,3 +15,14 @@ export const ToneType = {
 } as const
 
 export type ToneType = typeof ToneType[keyof typeof ToneType]
+
+export type LanguageType = 'English'
+  | 'Русский'
+  | 'Қазақша'
+  | 'Українська'
+  | 'Беларуская'
+  | 'Deutsch'
+  | 'Français'
+  | 'Español'
+  | 'Italiano'
+  | 'Português'
