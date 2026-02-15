@@ -50,8 +50,8 @@ export const App = () => {
         </div>
         <div>
           <div>
-            <button onClick={() => setOccasion(OccasionType.BIRTHDAY)}>День Рождения</button>
-            <button onClick={() => setOccasion(OccasionType.NEW_YEAR)}>Новый Год</button>
+            <button onClick={() => setOccasion(OccasionType.BIRTHDAY)}>Birthday</button>
+            <button onClick={() => setOccasion(OccasionType.NEW_YEAR)}>New Year</button>
           </div>
           <div>
             <input type="text" placeholder="Sabyrka" value={name} onChange={(event) => setName(event.target.value)} />
@@ -61,7 +61,7 @@ export const App = () => {
             <textarea
               cols={30}
               rows={10}
-              placeholder='Например: "Любит футбол, путешествия и готовить"'
+              placeholder="Coding, music, traveling..."
               value={interests}
               onChange={(event) => setInterests(event.target.value)}
             ></textarea>
@@ -83,7 +83,7 @@ export const App = () => {
             </select>
           </div>
           <div>
-            <button onClick={handleGenerate} disabled={loading}>Создать магию</button>
+            <button onClick={handleGenerate} disabled={loading}>Generate</button>
           </div>
         </div>
       </main>
