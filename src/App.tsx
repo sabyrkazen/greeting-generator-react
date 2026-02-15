@@ -1,11 +1,9 @@
 import { useState } from 'react'
-
 import { type LanguageType, OccasionType, ToneType } from './types'
 import { LANGUAGES } from './constants'
-
 import { generateGreeting } from './services/geminiService'
-
-import { Header, PageHero } from './components'
+import { Header, OccasionButton, PageHero } from './components'
+import { Cake, Snowflake } from 'lucide-react'
 
 export const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -55,9 +53,23 @@ export const App = () => {
                   Choose an occasion
                 </h3>
               </div>
+
               <div className="grid grid-cols-2 gap-4">
-                <button onClick={() => setOccasion(OccasionType.BIRTHDAY)}>Birthday</button>
-                <button onClick={() => setOccasion(OccasionType.NEW_YEAR)}>New Year</button>
+                <OccasionButton
+                  icon={Cake}
+                  isSelected={occasion === OccasionType.BIRTHDAY}
+                  onClick={() => setOccasion(OccasionType.BIRTHDAY)}
+                >
+                  Birthday
+                </OccasionButton>
+
+                <OccasionButton
+                  icon={Snowflake}
+                  isSelected={occasion === OccasionType.NEW_YEAR}
+                  onClick={() => setOccasion(OccasionType.NEW_YEAR)}
+                >
+                  New Year
+                </OccasionButton>
               </div>
             </section>
           </div>
