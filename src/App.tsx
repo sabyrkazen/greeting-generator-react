@@ -5,7 +5,7 @@ import { LANGUAGES } from './constants'
 
 import { generateGreeting } from './services/geminiService'
 
-import { Header } from './components'
+import { Header, PageHero } from './components'
 
 export const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -42,6 +42,7 @@ export const App = () => {
     <div className="min-h-screen bg-[#FAF5FF]">
       <Header />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <PageHero />
         <div className="max-w-7xl mx-auto">
           <p>{occasion}</p>
           <p>{name}</p>
