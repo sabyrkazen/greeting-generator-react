@@ -1,16 +1,16 @@
 export const OccasionType = {
-  BIRTHDAY: 'День Рождения',
-  NEW_YEAR: 'Новый Год',
+  BIRTHDAY: 'Birthday',
+  NEW_YEAR: 'New Year',
 } as const
 
 export type OccasionType = typeof OccasionType[keyof typeof OccasionType]
 
 export const ToneType = {
-  OFFICIAL: 'Официальный',
-  FRIENDLY: 'Дружеский',
-  HUMOROUS: 'Юмористический',
-  ROMANTIC: 'Романтический',
-  TOUCHING: 'Трогательный',
+  OFFICIAL: 'Official',
+  FRIENDLY: 'Friendly',
+  HUMOROUS: 'Humorous',
+  ROMANTIC: 'Romantic',
+  TOUCHING: 'Touching',
   ADULT: '18+',
 } as const
 
