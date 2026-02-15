@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { OccasionType } from './types'
+import { OccasionType, ToneType } from './types'
 
 export const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
   const [name, setName] = useState<string>('')
   const [age, setAge] = useState<string>('')
   const [interests, setInterests] = useState<string>('')
+  const [tone, setTone] = useState<ToneType>(ToneType.OFFICIAL)
 
   return (
     <div className="min-h-screen bg-[#FAF5FF]">
@@ -16,6 +17,7 @@ export const App = () => {
           <p>{name}</p>
           <p>{age}</p>
           <p>{interests}</p>
+          <p>{tone}</p>
         </div>
         <div>
           <div>
@@ -34,6 +36,13 @@ export const App = () => {
               value={interests}
               onChange={(event) => setInterests(event.target.value)}
             ></textarea>
+          </div>
+          <div>
+            {Object.values(ToneType).map((item: ToneType) => (
+              <button key={item} onClick={() => setTone(item)}>
+                {item}
+              </button>
+            ))}
           </div>
         </div>
       </main>
