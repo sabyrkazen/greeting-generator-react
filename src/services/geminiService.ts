@@ -13,28 +13,28 @@ export const generateGreeting = async (
 ): Promise<string> => {
   try {
     const prompt = `
-      Напиши уникальное поздравление на языке: ${language}.
+      Write a unique greeting in the following language: ${language}.
 
-      Повод: ${occasion},
-      Для кого: ${name},
-      Возраст: ${age ? age : 'Не указан'},
-      Интересы/хобби: ${interests ? interests : 'Не указаны'},
-      Тон: ${tone}
+      Occasion: ${occasion},
+      For: ${name},
+      Age: ${age ? age : 'Not specified'},
+      Interests/Hobbies: ${interests ? interests : 'Not specified'},
+      Tone: ${tone}
 
-      Инструкции по стилю (адаптируй под культурный контекст языка ${language}):
-      - Официальный: Сдержанный, уважительный.
-      - Дружеский: Теплый, неформальный.
-      - Юмористический: Веселый, забавный, с доброй шуткой.
-      - Романтический: Нежный, любящий, чувственный.
-      - Трогательный: Душевный, эмоциональный.
-      - 18+: Дерзкое, с перчинкой, сарказмом или взрослыми шутками. (Только если уместно для контекста 18+).
+      Style instructions (adapt to the cultural context of the ${language} language):
+      - Formal: Reserved and respectful.
+      - Friendly: Warm and informal.
+      - Humorous: Fun, playful, with a light-hearted joke.
+      - Romantic: Tender, loving, and sensual.
+      - Touching: Heartfelt and emotional.
+      - 18+: Bold, spicy, with sarcasm or adult jokes (only if appropriate for an 18+ context).
 
-      Общие требования:
-      - Обязательно учитывай возраст и интересы человека.
-      - Длина: От 2 до 5 предложений.
-      - Используй 2-3 подходящих по смыслу эмодзи.
-      - Форматирование: Просто текст, без markdown заголовков.
-      - Язык ответа СТРОГО: ${language}.
+      General requirements:
+      - Be sure to take the person's age and interests into account.
+      - Length: 2 to 5 sentences.
+      - Use 2–3 emojis that match the meaning.
+      - Formatting: Plain text only, no markdown headings.
+      - The response language MUST be: ${language}.
     `
 
     const response = await ai.models.generateContent({
