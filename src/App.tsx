@@ -11,15 +11,26 @@ export const App = () => {
   const [tone, setTone] = useState<ToneType>(ToneType.OFFICIAL)
   const [language, setLanguage] = useState<LanguageType>('English')
   const [generatedText, setGeneratedText] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleGenerate = async (): Promise<void> => {
-    if (!name.trim()) return
+    if (!name.trim()) {
+      setError('Please enter a name.')
+      return
+    }
+
+    setError(null)
+    setLoading(true)
+    setGeneratedText('')
 
     try {
       const response = await generateGreeting(occasion, name, age, interests, tone, language)
       setGeneratedText(response)
     } catch (error) {
       console.error(error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -35,6 +46,7 @@ export const App = () => {
           <p>{tone}</p>
           <p>{language}</p>
           <p>{generatedText}</p>
+          <p>{error}</p>
         </div>
         <div>
           <div>
@@ -71,7 +83,7 @@ export const App = () => {
             </select>
           </div>
           <div>
-            <button onClick={handleGenerate}>Создать магию</button>
+            <button onClick={handleGenerate} disabled={loading}>Создать магию</button>
           </div>
         </div>
       </main>
