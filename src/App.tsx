@@ -43,6 +43,10 @@ export const App = () => {
       <Header />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <PageHero />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="lg:col-span-5 sm:space-y-10 space-y-8"></div>
+          <div className="lg:col-span-7 h-full"></div>
+        </div>
         <div className="max-w-7xl mx-auto">
           <p>{occasion}</p>
           <p>{name}</p>
