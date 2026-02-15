@@ -45,8 +45,13 @@ export const generateGreeting = async (
       },
     })
 
-    console.log(response.text)
-    return ''
+    const text = response?.text?.trim()
+
+    if (!text) {
+      throw new Error('AI model returned empty text response')
+    }
+
+    return text
   } catch (error) {
     console.error('Greeting generation error:', error)
     return 'Something went wrong. Please try again.'

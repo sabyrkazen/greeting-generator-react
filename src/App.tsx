@@ -10,12 +10,14 @@ export const App = () => {
   const [interests, setInterests] = useState<string>('')
   const [tone, setTone] = useState<ToneType>(ToneType.OFFICIAL)
   const [language, setLanguage] = useState<LanguageType>('English')
+  const [generatedText, setGeneratedText] = useState<string>('')
 
   const handleGenerate = async (): Promise<void> => {
     if (!name.trim()) return
 
     try {
-      await generateGreeting(occasion, name, age, interests, tone, language)
+      const response = await generateGreeting(occasion, name, age, interests, tone, language)
+      setGeneratedText(response)
     } catch (error) {
       console.error(error)
     }
@@ -32,6 +34,7 @@ export const App = () => {
           <p>{interests}</p>
           <p>{tone}</p>
           <p>{language}</p>
+          <p>{generatedText}</p>
         </div>
         <div>
           <div>
