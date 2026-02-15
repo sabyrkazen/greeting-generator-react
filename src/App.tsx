@@ -1,7 +1,11 @@
 import { useState } from 'react'
+
 import { type LanguageType, OccasionType, ToneType } from './types'
 import { LANGUAGES } from './constants'
+
 import { generateGreeting } from './services/geminiService'
+
+import { Header } from './components'
 
 export const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -36,7 +40,7 @@ export const App = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF5FF]">
-      <header></header>
+      <Header />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto">
           <p>{occasion}</p>
