@@ -44,9 +44,27 @@ export const App = () => {
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <PageHero />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div className="lg:col-span-5 sm:space-y-10 space-y-8"></div>
+          <div className="lg:col-span-5 sm:space-y-10 space-y-8">
+            <section className="space-y-4">
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <span
+                      className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs">
+                      1
+                    </span>
+                  Choose an occasion
+                </h3>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <button onClick={() => setOccasion(OccasionType.BIRTHDAY)}>Birthday</button>
+                <button onClick={() => setOccasion(OccasionType.NEW_YEAR)}>New Year</button>
+              </div>
+            </section>
+          </div>
+
           <div className="lg:col-span-7 h-full"></div>
         </div>
+
         <div className="max-w-7xl mx-auto">
           <p>{occasion}</p>
           <p>{name}</p>
@@ -57,11 +75,8 @@ export const App = () => {
           <p>{generatedText}</p>
           <p>{error}</p>
         </div>
+
         <div>
-          <div>
-            <button onClick={() => setOccasion(OccasionType.BIRTHDAY)}>Birthday</button>
-            <button onClick={() => setOccasion(OccasionType.NEW_YEAR)}>New Year</button>
-          </div>
           <div>
             <input type="text" placeholder="Sabyrka" value={name} onChange={(event) => setName(event.target.value)} />
             <br />
